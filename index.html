@@ -83,6 +83,17 @@
     .badge-free { background: rgba(245,158,11,0.15); color: var(--free); }
     .badge-go { background: rgba(16,185,129,0.15); color: var(--go); }
     .badge-promo { background: rgba(244,63,94,0.15); color: var(--promo); }
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: rgba(99,102,241,0.12);
+      color: #a5b4fc;
+      border: 1px solid rgba(99,102,241,0.25);
+      white-space: nowrap;
+    }
     .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px; }
     .chart-wrap { position: relative; height: 320px; }
     .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
@@ -361,7 +372,7 @@
                         </td>
                         <td className="provider">{m.provider}</td>
                         <td><span className="badge badge-go">{m.category}</span></td>
-                        <td style={{ fontSize: '0.85rem', color: 'var(--text-2)' }}>{m.bestFor}</td>
+                        <td><span className="pill">{m.bestFor}</span></td>
                         <td className="limit-cell">
                           {m.freeLimit ? <span style={{ color: 'var(--free)', fontWeight: 600 }}>{formatNum(m.freeLimit)}</span> : '—'}
                         </td>
