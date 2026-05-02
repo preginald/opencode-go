@@ -110,21 +110,21 @@
     const MULTIPLIERS = [1, 5, 10, 25, 50, 100];
 
     const MODELS = [
-      { id: 'big-pickle', name: 'Big Pickle', provider: 'OpenCode', category: 'Free', freeLimit: 200, goLimit: null, note: null },
-      { id: 'glm-5.1', name: 'GLM-5.1', provider: 'Zhipu AI', category: 'Chat', freeLimit: null, goLimit: 880, note: null },
-      { id: 'glm-5', name: 'GLM-5', provider: 'Zhipu AI', category: 'Chat', freeLimit: null, goLimit: null, note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'kimi-k2.6', name: 'Kimi K2.6', provider: 'Moonshot', category: 'Chat', freeLimit: null, goLimit: 3450, note: '3× usage promo through April 27' },
-      { id: 'kimi-k2.5', name: 'Kimi K2.5', provider: 'Moonshot', category: 'Chat', freeLimit: null, goLimit: null, note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'mimo-v2-pro', name: 'MiMo-V2-Pro', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: null, note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'mimo-v2-omni', name: 'MiMo-V2-Omni', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: null, note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'mimo-v2.5-pro', name: 'MiMo-V2.5-Pro', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: 1290, note: null },
-      { id: 'mimo-v2.5', name: 'MiMo-V2.5', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: null, note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'qwen3.6-plus', name: 'Qwen3.6 Plus', provider: 'Alibaba', category: 'Chat', freeLimit: null, goLimit: 3300, note: null },
-      { id: 'qwen3.5-plus', name: 'Qwen3.5 Plus', provider: 'Alibaba', category: 'Chat', freeLimit: null, goLimit: 10200, note: null },
-      { id: 'minimax-m2.7', name: 'MiniMax M2.7', provider: 'MiniMax', category: 'Chat', freeLimit: null, goLimit: 3400, note: null },
-      { id: 'minimax-m2.5', name: 'MiniMax M2.5', provider: 'MiniMax', category: 'Chat', freeLimit: null, goLimit: null, note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', provider: 'DeepSeek', category: 'Coding', freeLimit: null, goLimit: 3450, note: null },
-      { id: 'deepseek-v4-flash', name: 'DeepSeek V4 Flash', provider: 'DeepSeek', category: 'Coding', freeLimit: null, goLimit: 31650, note: null },
+      { id: 'big-pickle', name: 'Big Pickle', provider: 'OpenCode', category: 'Free', freeLimit: 200, goLimit: null, bestFor: 'General coding assistance', note: null },
+      { id: 'glm-5.1', name: 'GLM-5.1', provider: 'Zhipu AI', category: 'Chat', freeLimit: null, goLimit: 880, bestFor: 'Reasoning, Chinese language tasks', note: null },
+      { id: 'glm-5', name: 'GLM-5', provider: 'Zhipu AI', category: 'Chat', freeLimit: null, goLimit: null, bestFor: 'General chat, multilingual reasoning', note: 'Included in Go; limit not shown on pricing page' },
+      { id: 'kimi-k2.6', name: 'Kimi K2.6', provider: 'Moonshot', category: 'Chat', freeLimit: null, goLimit: 3450, bestFor: 'Long-context documents, analysis', note: '3× usage promo through April 27' },
+      { id: 'kimi-k2.5', name: 'Kimi K2.5', provider: 'Moonshot', category: 'Chat', freeLimit: null, goLimit: null, bestFor: 'Long-context writing, reasoning', note: 'Included in Go; limit not shown on pricing page' },
+      { id: 'mimo-v2-pro', name: 'MiMo-V2-Pro', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: null, bestFor: 'Agentic coding workflows', note: 'Included in Go; limit not shown on pricing page' },
+      { id: 'mimo-v2-omni', name: 'MiMo-V2-Omni', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: null, bestFor: 'Multi-file coding, refactoring', note: 'Included in Go; limit not shown on pricing page' },
+      { id: 'mimo-v2.5-pro', name: 'MiMo-V2.5-Pro', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: 1290, bestFor: 'Advanced coding, debugging', note: null },
+      { id: 'mimo-v2.5', name: 'MiMo-V2.5', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: null, bestFor: 'General coding tasks', note: 'Included in Go; limit not shown on pricing page' },
+      { id: 'qwen3.6-plus', name: 'Qwen3.6 Plus', provider: 'Alibaba', category: 'Chat', freeLimit: null, goLimit: 3300, bestFor: 'Multilingual chat, tool use', note: null },
+      { id: 'qwen3.5-plus', name: 'Qwen3.5 Plus', provider: 'Alibaba', category: 'Chat', freeLimit: null, goLimit: 10200, bestFor: 'High-volume chat, agents', note: null },
+      { id: 'minimax-m2.7', name: 'MiniMax M2.7', provider: 'MiniMax', category: 'Chat', freeLimit: null, goLimit: 3400, bestFor: 'Creative writing, conversation', note: null },
+      { id: 'minimax-m2.5', name: 'MiniMax M2.5', provider: 'MiniMax', category: 'Chat', freeLimit: null, goLimit: null, bestFor: 'General chat, voice', note: 'Included in Go; limit not shown on pricing page' },
+      { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', provider: 'DeepSeek', category: 'Coding', freeLimit: null, goLimit: 3450, bestFor: 'Complex coding, math, reasoning', note: null },
+      { id: 'deepseek-v4-flash', name: 'DeepSeek V4 Flash', provider: 'DeepSeek', category: 'Coding', freeLimit: null, goLimit: 31650, bestFor: 'Fast, high-volume coding', note: null },
     ];
 
     const PROVIDERS = [...new Set(MODELS.map(m => m.provider))];
@@ -345,6 +345,7 @@
                     <th>Model</th>
                     <th>Provider</th>
                     <th>Category</th>
+                    <th>Best For</th>
                     <th>Free Limit</th>
                     <th>Go Limit ({multiplier}×)</th>
                     <th>Note</th>
@@ -360,6 +361,7 @@
                         </td>
                         <td className="provider">{m.provider}</td>
                         <td><span className="badge badge-go">{m.category}</span></td>
+                        <td style={{ fontSize: '0.85rem', color: 'var(--text-2)' }}>{m.bestFor}</td>
                         <td className="limit-cell">
                           {m.freeLimit ? <span style={{ color: 'var(--free)', fontWeight: 600 }}>{formatNum(m.freeLimit)}</span> : '—'}
                         </td>
