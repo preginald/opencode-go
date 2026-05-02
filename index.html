@@ -35,21 +35,6 @@
     header { margin-bottom: 32px; }
     h1 { font-size: 2rem; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.02em; }
     p.lead { color: var(--text-2); margin: 0 0 24px; font-size: 1.05rem; }
-    .toolbar {
-      display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 24px;
-    }
-    .toolbar input, .toolbar select {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      outline: none;
-      min-width: 220px;
-    }
-    .toolbar input:focus, .toolbar select:focus { border-color: var(--accent); }
-    .toolbar label { color: var(--text-2); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -58,10 +43,6 @@
       margin-bottom: 24px;
     }
     .card h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 16px; }
-    .multiplier-control {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;
-    }
-    .multiplier-control span { color: var(--text-2); font-size: 0.9rem; }
     .chip {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 500;
@@ -69,13 +50,13 @@
       user-select: none; transition: all .15s ease;
     }
     .chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-    th, td { padding: 12px; text-align: left; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { padding: 10px 12px; text-align: left; }
     th { color: var(--text-2); font-weight: 500; border-bottom: 1px solid var(--border); white-space: nowrap; }
     td { border-bottom: 1px solid var(--border); }
     tr:hover td { background: rgba(255,255,255,0.03); }
     .model-name { font-weight: 600; }
-    .provider { color: var(--text-2); font-size: 0.85rem; }
+    .provider { color: var(--text-2); font-size: 0.8rem; }
     .limit-cell { font-variant-numeric: tabular-nums; }
     .badge {
       display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 600;
@@ -85,9 +66,9 @@
     .badge-promo { background: rgba(244,63,94,0.15); color: var(--promo); }
     .pill {
       display: inline-block;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 999px;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 500;
       background: rgba(99,102,241,0.12);
       color: #a5b4fc;
@@ -97,7 +78,7 @@
     .table-filters {
       display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
     }
-    .table-filters select {
+    .table-filters input, .table-filters select {
       background: var(--surface-2);
       border: 1px solid var(--border);
       color: var(--text);
@@ -106,7 +87,7 @@
       font-size: 0.85rem;
       outline: none;
     }
-    .table-filters select:focus { border-color: var(--accent); }
+    .table-filters input:focus, .table-filters select:focus { border-color: var(--accent); }
     .table-filters label { color: var(--text-2); font-size: 0.85rem; display: flex; align-items: center; gap: 6px; }
     th.sortable {
       cursor: pointer;
@@ -125,20 +106,36 @@
     th.sortable.active .sort-indicator { opacity: 1; color: var(--accent); }
     .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px; }
     .chart-wrap { position: relative; height: 320px; }
-    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
     .stat {
       background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
     }
-    .stat-value { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
-    .stat-label { color: var(--text-2); font-size: 0.85rem; margin-top: 4px; }
-    .highlight { color: var(--accent); }
+    .stat-value { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+    .stat-label { color: var(--text-2); font-size: 0.8rem; margin-top: 4px; }
     .note { color: var(--text-2); font-size: 0.85rem; margin-top: 8px; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .token-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .token-pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 2px 8px; border-radius: 6px; font-size: 0.7rem;
+      background: var(--surface-2); color: var(--text-2); border: 1px solid var(--border);
+    }
+    .token-pill strong { color: var(--text); font-weight: 600; }
+    .period-toggle {
+      display: flex; gap: 8px; margin-bottom: 16px;
+    }
+    .endpoint {
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 0.72rem;
+      color: var(--text-2);
+      background: var(--surface-2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
     @media (max-width: 640px) {
       .charts-grid { grid-template-columns: 1fr; }
-      .toolbar input, .toolbar select { min-width: 100%; }
-      table { font-size: 0.85rem; }
-      th, td { padding: 10px 8px; }
+      table { font-size: 0.8rem; }
+      th, td { padding: 8px 6px; }
     }
   </style>
 </head>
@@ -148,28 +145,35 @@
     const { useState, useMemo, useEffect, useRef } = React;
 
     const MULTIPLIERS = [1, 5, 10, 25, 50, 100];
+    const PERIODS = [
+      { key: '5h', label: '5 hours', dollar: 12 },
+      { key: 'week', label: 'Week', dollar: 30 },
+      { key: 'month', label: 'Month', dollar: 60 },
+    ];
 
     const MODELS = [
-      { id: 'big-pickle', name: 'Big Pickle', provider: 'OpenCode', category: 'Free', freeLimit: 200, goLimit: null, bestFor: 'General coding assistance', note: null },
-      { id: 'glm-5.1', name: 'GLM-5.1', provider: 'Zhipu AI', category: 'Chat', freeLimit: null, goLimit: 880, bestFor: 'Reasoning, Chinese language tasks', note: null },
-      { id: 'glm-5', name: 'GLM-5', provider: 'Zhipu AI', category: 'Chat', freeLimit: null, goLimit: null, bestFor: 'General chat, multilingual reasoning', note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'kimi-k2.6', name: 'Kimi K2.6', provider: 'Moonshot', category: 'Chat', freeLimit: null, goLimit: 3450, bestFor: 'Long-context documents, analysis', note: '3× usage promo through April 27' },
-      { id: 'kimi-k2.5', name: 'Kimi K2.5', provider: 'Moonshot', category: 'Chat', freeLimit: null, goLimit: null, bestFor: 'Long-context writing, reasoning', note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'mimo-v2-pro', name: 'MiMo-V2-Pro', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: null, bestFor: 'Agentic coding workflows', note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'mimo-v2-omni', name: 'MiMo-V2-Omni', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: null, bestFor: 'Multi-file coding, refactoring', note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'mimo-v2.5-pro', name: 'MiMo-V2.5-Pro', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: 1290, bestFor: 'Advanced coding, debugging', note: null },
-      { id: 'mimo-v2.5', name: 'MiMo-V2.5', provider: 'Xiaomi', category: 'Coding', freeLimit: null, goLimit: null, bestFor: 'General coding tasks', note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'qwen3.6-plus', name: 'Qwen3.6 Plus', provider: 'Alibaba', category: 'Chat', freeLimit: null, goLimit: 3300, bestFor: 'Multilingual chat, tool use', note: null },
-      { id: 'qwen3.5-plus', name: 'Qwen3.5 Plus', provider: 'Alibaba', category: 'Chat', freeLimit: null, goLimit: 10200, bestFor: 'High-volume chat, agents', note: null },
-      { id: 'minimax-m2.7', name: 'MiniMax M2.7', provider: 'MiniMax', category: 'Chat', freeLimit: null, goLimit: 3400, bestFor: 'Creative writing, conversation', note: null },
-      { id: 'minimax-m2.5', name: 'MiniMax M2.5', provider: 'MiniMax', category: 'Chat', freeLimit: null, goLimit: null, bestFor: 'General chat, voice', note: 'Included in Go; limit not shown on pricing page' },
-      { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', provider: 'DeepSeek', category: 'Coding', freeLimit: null, goLimit: 3450, bestFor: 'Complex coding, math, reasoning', note: null },
-      { id: 'deepseek-v4-flash', name: 'DeepSeek V4 Flash', provider: 'DeepSeek', category: 'Coding', freeLimit: null, goLimit: 31650, bestFor: 'Fast, high-volume coding', note: null },
+      { id: 'big-pickle', name: 'Big Pickle', provider: 'OpenCode', category: 'Free', modelId: 'big-pickle', freeLimit: 200, limits: { '5h': null, week: null, month: null }, tokens: null, bestFor: 'General coding assistance', endpoint: null, sdk: null, note: null },
+      { id: 'glm-5.1', name: 'GLM-5.1', provider: 'Zhipu AI', category: 'Chat', modelId: 'glm-5.1', freeLimit: null, limits: { '5h': 880, week: 2150, month: 4300 }, tokens: { input: 700, cached: 52000, output: 150 }, bestFor: 'Reasoning, Chinese language tasks', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: null },
+      { id: 'glm-5', name: 'GLM-5', provider: 'Zhipu AI', category: 'Chat', modelId: 'glm-5', freeLimit: null, limits: { '5h': 1150, week: 2880, month: 5750 }, tokens: { input: 700, cached: 52000, output: 150 }, bestFor: 'General chat, multilingual reasoning', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: null },
+      { id: 'kimi-k2.6', name: 'Kimi K2.6', provider: 'Moonshot', category: 'Chat', modelId: 'kimi-k2.6', freeLimit: null, limits: { '5h': 1150, week: 2880, month: 5750 }, tokens: { input: 870, cached: 55000, output: 200 }, bestFor: 'Long-context documents, analysis', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: '3× usage promo through April 27' },
+      { id: 'kimi-k2.5', name: 'Kimi K2.5', provider: 'Moonshot', category: 'Chat', modelId: 'kimi-k2.5', freeLimit: null, limits: { '5h': 1850, week: 4630, month: 9250 }, tokens: { input: 870, cached: 55000, output: 200 }, bestFor: 'Long-context writing, reasoning', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: null },
+      { id: 'mimo-v2-pro', name: 'MiMo-V2-Pro', provider: 'Xiaomi', category: 'Coding', modelId: 'mimo-v2-pro', freeLimit: null, limits: { '5h': 1290, week: 3225, month: 6450 }, tokens: { input: 350, cached: 41000, output: 250 }, bestFor: 'Agentic coding workflows', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: null },
+      { id: 'mimo-v2-omni', name: 'MiMo-V2-Omni', provider: 'Xiaomi', category: 'Coding', modelId: 'mimo-v2-omni', freeLimit: null, limits: { '5h': 2150, week: 5450, month: 10900 }, tokens: { input: 1000, cached: 60000, output: 140 }, bestFor: 'Multi-file coding, refactoring', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: null },
+      { id: 'mimo-v2.5-pro', name: 'MiMo-V2.5-Pro', provider: 'Xiaomi', category: 'Coding', modelId: 'mimo-v2.5-pro', freeLimit: null, limits: { '5h': 1290, week: 3225, month: 6450 }, tokens: { input: 350, cached: 41000, output: 250 }, bestFor: 'Advanced coding, debugging', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: null },
+      { id: 'mimo-v2.5', name: 'MiMo-V2.5', provider: 'Xiaomi', category: 'Coding', modelId: 'mimo-v2.5', freeLimit: null, limits: { '5h': 2150, week: 5450, month: 10900 }, tokens: { input: 1000, cached: 60000, output: 140 }, bestFor: 'General coding tasks', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: '≤ 256K context window' },
+      { id: 'qwen3.6-plus', name: 'Qwen3.6 Plus', provider: 'Alibaba', category: 'Chat', modelId: 'qwen3.6-plus', freeLimit: null, limits: { '5h': 3300, week: 8200, month: 16300 }, tokens: { input: 500, cached: 57000, output: 190 }, bestFor: 'Multilingual chat, tool use', endpoint: 'chat/completions', sdk: '@ai-sdk/alibaba', note: null },
+      { id: 'qwen3.5-plus', name: 'Qwen3.5 Plus', provider: 'Alibaba', category: 'Chat', modelId: 'qwen3.5-plus', freeLimit: null, limits: { '5h': 10200, week: 25200, month: 50500 }, tokens: { input: 410, cached: 47000, output: 140 }, bestFor: 'High-volume chat, agents', endpoint: 'chat/completions', sdk: '@ai-sdk/alibaba', note: null },
+      { id: 'minimax-m2.7', name: 'MiniMax M2.7', provider: 'MiniMax', category: 'Chat', modelId: 'minimax-m2.7', freeLimit: null, limits: { '5h': 3400, week: 8500, month: 17000 }, tokens: { input: 300, cached: 55000, output: 125 }, bestFor: 'Creative writing, conversation', endpoint: 'messages', sdk: '@ai-sdk/anthropic', note: null },
+      { id: 'minimax-m2.5', name: 'MiniMax M2.5', provider: 'MiniMax', category: 'Chat', modelId: 'minimax-m2.5', freeLimit: null, limits: { '5h': 6300, week: 15900, month: 31800 }, tokens: { input: 300, cached: 55000, output: 125 }, bestFor: 'General chat, voice', endpoint: 'messages', sdk: '@ai-sdk/anthropic', note: null },
+      { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', provider: 'DeepSeek', category: 'Coding', modelId: 'deepseek-v4-pro', freeLimit: null, limits: { '5h': 3450, week: 8550, month: 17150 }, tokens: { input: 750, cached: 82000, output: 290 }, bestFor: 'Complex coding, math, reasoning', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: null },
+      { id: 'deepseek-v4-flash', name: 'DeepSeek V4 Flash', provider: 'DeepSeek', category: 'Coding', modelId: 'deepseek-v4-flash', freeLimit: null, limits: { '5h': 31650, week: 79050, month: 158150 }, tokens: { input: 790, cached: 68000, output: 280 }, bestFor: 'Fast, high-volume coding', endpoint: 'chat/completions', sdk: '@ai-sdk/openai-compatible', note: null },
     ];
 
     const PROVIDERS = [...new Set(MODELS.map(m => m.provider))];
     const CATEGORIES = [...new Set(MODELS.map(m => m.category))];
     const BEST_FOR_TAGS = [...new Set(MODELS.flatMap(m => m.bestFor.split(',').map(t => t.trim())))].sort();
+    const ENDPOINTS = [...new Set(MODELS.map(m => m.endpoint).filter(Boolean))];
+    const SDKS = [...new Set(MODELS.map(m => m.sdk).filter(Boolean))];
 
     function formatNum(n) {
       if (n == null) return '—';
@@ -181,7 +185,7 @@
       return t.charAt(0).toUpperCase() + t.slice(1);
     }
 
-    function BarChart({ data, label }) {
+    function BarChart({ data, label, periodLabel }) {
       const canvasRef = useRef(null);
       const chartRef = useRef(null);
 
@@ -208,7 +212,7 @@
               legend: { display: false },
               tooltip: {
                 callbacks: {
-                  label: (context) => `${context.parsed.y.toLocaleString()} requests / 5h`
+                  label: (context) => `${context.parsed.y.toLocaleString()} requests / ${periodLabel}`
                 }
               }
             },
@@ -219,7 +223,7 @@
           }
         });
         return () => { if (chartRef.current) chartRef.current.destroy(); };
-      }, [data, label]);
+      }, [data, label, periodLabel]);
 
       return <div className="chart-wrap"><canvas ref={canvasRef} /></div>;
     }
@@ -261,33 +265,36 @@
       const [provider, setProvider] = useState('All');
       const [category, setCategory] = useState('All');
       const [bestForTag, setBestForTag] = useState('All');
+      const [endpointFilter, setEndpointFilter] = useState('All');
+      const [sdkFilter, setSdkFilter] = useState('All');
       const [showOnlyWithLimits, setShowOnlyWithLimits] = useState(false);
       const [multiplier, setMultiplier] = useState(1);
+      const [period, setPeriod] = useState('5h');
       const [sort, setSort] = useState({ key: 'name', dir: 'asc' });
 
       const filtered = useMemo(() => {
         let data = MODELS.filter(m => {
-          const matchSearch = m.name.toLowerCase().includes(search.toLowerCase()) || m.provider.toLowerCase().includes(search.toLowerCase());
+          const matchSearch = m.name.toLowerCase().includes(search.toLowerCase()) || m.provider.toLowerCase().includes(search.toLowerCase()) || (m.modelId && m.modelId.toLowerCase().includes(search.toLowerCase()));
           const matchProvider = provider === 'All' || m.provider === provider;
           const matchCategory = category === 'All' || m.category === category;
           const matchBestFor = bestForTag === 'All' || m.bestFor.toLowerCase().includes(bestForTag.toLowerCase());
-          const matchLimits = showOnlyWithLimits ? (m.goLimit != null || m.freeLimit != null) : true;
-          return matchSearch && matchProvider && matchCategory && matchBestFor && matchLimits;
+          const matchEndpoint = endpointFilter === 'All' || m.endpoint === endpointFilter;
+          const matchSdk = sdkFilter === 'All' || m.sdk === sdkFilter;
+          const matchLimits = showOnlyWithLimits ? (m.limits[period] != null || m.freeLimit != null) : true;
+          return matchSearch && matchProvider && matchCategory && matchBestFor && matchEndpoint && matchSdk && matchLimits;
         });
         data.sort((a, b) => {
           let av, bv;
-          if (sort.key === 'goLimit') { av = a.goLimit ?? -1; bv = b.goLimit ?? -1; }
+          if (sort.key === 'limit') { av = a.limits[period] ?? -1; bv = b.limits[period] ?? -1; }
           else if (sort.key === 'freeLimit') { av = a.freeLimit ?? -1; bv = b.freeLimit ?? -1; }
           else { av = a[sort.key] ?? ''; bv = b[sort.key] ?? ''; }
-          if (typeof av === 'string') {
-            av = av.toLowerCase(); bv = bv.toLowerCase();
-          }
+          if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
           if (av < bv) return sort.dir === 'asc' ? -1 : 1;
           if (av > bv) return sort.dir === 'asc' ? 1 : -1;
           return 0;
         });
         return data;
-      }, [search, provider, category, bestForTag, showOnlyWithLimits, sort]);
+      }, [search, provider, category, bestForTag, endpointFilter, sdkFilter, showOnlyWithLimits, period, sort]);
 
       function toggleSort(key) {
         setSort(prev => ({ key, dir: prev.key === key && prev.dir === 'asc' ? 'desc' : 'asc' }));
@@ -303,87 +310,105 @@
         );
       }
 
-      const modelsWithLimits = useMemo(() => filtered.filter(m => m.goLimit != null), [filtered]);
+      const modelsWithLimits = useMemo(() => filtered.filter(m => m.limits[period] != null), [filtered, period]);
 
       const barData = useMemo(() => {
         return modelsWithLimits.map((m, i) => ({
           name: m.name,
-          value: m.goLimit * multiplier,
+          value: (m.limits[period] || 0) * multiplier,
           color: m.freeLimit ? '#f59e0b' : (m.note ? '#f43f5e' : '#6366f1')
         }));
-      }, [modelsWithLimits, multiplier]);
+      }, [modelsWithLimits, multiplier, period]);
 
       const doughnutData = useMemo(() => {
         const palette = ['#6366f1','#8b5cf6','#ec4899','#f43f5e','#f59e0b','#10b981','#06b6d4','#3b82f6','#a855f7'];
         return modelsWithLimits.map((m, i) => ({
           name: m.name,
-          value: m.goLimit * multiplier,
+          value: (m.limits[period] || 0) * multiplier,
           color: palette[i % palette.length]
         }));
-      }, [modelsWithLimits, multiplier]);
+      }, [modelsWithLimits, multiplier, period]);
 
       const bestValue = useMemo(() => {
         if (!modelsWithLimits.length) return null;
-        // approximate "requests per dollar" using base $10/mo; this is illustrative
         const perDollar = modelsWithLimits.map(m => ({
           ...m,
-          value: Math.round((m.goLimit * multiplier) / 10)
+          value: Math.round(((m.limits[period] || 0) * multiplier) / 10)
         })).sort((a, b) => b.value - a.value);
         return perDollar[0];
-      }, [modelsWithLimits, multiplier]);
+      }, [modelsWithLimits, multiplier, period]);
 
       const highestLimit = useMemo(() => {
         if (!modelsWithLimits.length) return null;
-        return modelsWithLimits.reduce((max, m) => (m.goLimit * multiplier > max.goLimit * multiplier ? m : max), modelsWithLimits[0]);
-      }, [modelsWithLimits, multiplier]);
+        return modelsWithLimits.reduce((max, m) => (((m.limits[period] || 0) * multiplier) > ((max.limits[period] || 0) * multiplier) ? m : max), modelsWithLimits[0]);
+      }, [modelsWithLimits, multiplier, period]);
+
+      const periodInfo = PERIODS.find(p => p.key === period);
 
       return (
         <div className="container">
           <header>
             <h1>OpenCode Go — Model Comparison</h1>
             <p className="lead">
-              Compare request limits across all models available to Go subscribers. 
-              Data sourced from <a href="https://opencode.ai/go" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>opencode.ai/go</a>.
+              Compare request limits, token estimates, and endpoints across all models available to Go subscribers. 
+              Data sourced from <a href="https://opencode.ai/docs/go/" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>opencode.ai/docs/go</a>.
             </p>
           </header>
 
           <div className="stat-grid">
             <div className="stat">
-              <div className="stat-value" style={{ color: 'var(--go)' }}>{MODELS.filter(m => m.goLimit != null).length}</div>
-              <div className="stat-label">Models with known Go limits</div>
+              <div className="stat-value" style={{ color: 'var(--go)' }}>{MODELS.filter(m => m.limits['5h'] != null).length}</div>
+              <div className="stat-label">Models available on Go</div>
             </div>
             <div className="stat">
-              <div className="stat-value" style={{ color: 'var(--accent)' }}>{formatNum(highestLimit ? highestLimit.goLimit * multiplier : null)}</div>
+              <div className="stat-value" style={{ color: 'var(--accent)' }}>{formatNum(highestLimit ? (highestLimit.limits[period] || 0) * multiplier : null)}</div>
               <div className="stat-label">Highest limit ({highestLimit?.name})</div>
+              <div className="note">per {periodInfo?.label.toLowerCase()}</div>
             </div>
             <div className="stat">
-              <div className="stat-value" style={{ color: 'var(--accent-2)' }}>{formatNum(bestValue ? bestValue.goLimit * multiplier : null)}</div>
+              <div className="stat-value" style={{ color: 'var(--accent-2)' }}>{formatNum(bestValue ? (bestValue.limits[period] || 0) * multiplier : null)}</div>
               <div className="stat-label">Best value model ({bestValue?.name})</div>
               <div className="note">~{formatNum(bestValue ? bestValue.value : null)} req/$ at $10/mo</div>
             </div>
             <div className="stat">
               <div className="stat-value" style={{ color: 'var(--free)' }}>200</div>
-              <div className="stat-label">Free tier limit (Big Pickle)</div>
+              <div className="stat-label">Free tier limit</div>
+              <div className="note">Big Pickle + free models</div>
+            </div>
+            <div className="stat">
+              <div className="stat-value" style={{ color: 'var(--go)' }}>${periodInfo?.dollar}</div>
+              <div className="stat-label">Dollar limit</div>
+              <div className="note">per {periodInfo?.label.toLowerCase()}</div>
             </div>
           </div>
 
           <div className="card">
-            <h2>Request Limit Multiplier</h2>
-            <div className="multiplier-control">
-              <span>Go base limits are shown at 1×. Select a multiplier to see scaled limits:</span>
+            <h2>Time Period & Multiplier</h2>
+            <div style={{ marginBottom: 16 }}>
+              <div style={{ color: 'var(--text-2)', fontSize: '0.9rem', marginBottom: 8 }}>Limits are dollar-based. Select a period to see estimated requests:</div>
+              <div className="period-toggle">
+                {PERIODS.map(p => (
+                  <button key={p.key} className={`chip ${period === p.key ? 'active' : ''}`} onClick={() => setPeriod(p.key)}>
+                    {p.label} (${p.dollar})
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="multiplier-control" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+              <span style={{ color: 'var(--text-2)', fontSize: '0.9rem' }}>Multiplier:</span>
               {MULTIPLIERS.map(m => (
                 <button key={m} className={`chip ${multiplier === m ? 'active' : ''}`} onClick={() => setMultiplier(m)}>
                   {m}×
                 </button>
               ))}
             </div>
-            <p className="note">Go starts at $5 for the first month, then $10/month. Multipliers are purchasable top-ups.</p>
+            <p className="note">Go starts at $5 for the first month, then $10/month. Multipliers are purchasable top-ups. Limits may change as usage patterns evolve.</p>
           </div>
 
           <div className="charts-grid">
             <div className="card">
-              <h2>Requests per 5 Hours (Go {multiplier}×)</h2>
-              <BarChart data={barData} label={`Go ${multiplier}×`} />
+              <h2>Requests per {periodInfo?.label} (Go {multiplier}×)</h2>
+              <BarChart data={barData} label={`Go ${multiplier}×`} periodLabel={periodInfo?.label} />
             </div>
             <div className="card">
               <h2>Limit Share by Model (Go {multiplier}×)</h2>
@@ -396,10 +421,10 @@
             <div className="table-filters">
               <input
                 type="text"
-                placeholder="Search models or providers..."
+                placeholder="Search models, providers, IDs..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                style={{ background: 'var(--surface-2)', border: '1px solid var(--border)', color: 'var(--text)', padding: '8px 12px', borderRadius: 8, fontSize: '0.85rem', outline: 'none', minWidth: 180 }}
+                style={{ minWidth: 180 }}
               />
               <select value={provider} onChange={e => setProvider(e.target.value)}>
                 <option value="All">All providers</option>
@@ -412,6 +437,14 @@
               <select value={bestForTag} onChange={e => setBestForTag(e.target.value)}>
                 <option value="All">All use cases</option>
                 {BEST_FOR_TAGS.map(t => <option key={t} value={t}>{t}</option>)}
+              </select>
+              <select value={endpointFilter} onChange={e => setEndpointFilter(e.target.value)}>
+                <option value="All">All endpoints</option>
+                {ENDPOINTS.map(e => <option key={e} value={e}>{e}</option>)}
+              </select>
+              <select value={sdkFilter} onChange={e => setSdkFilter(e.target.value)}>
+                <option value="All">All SDKs</option>
+                {SDKS.map(s => <option key={s} value={s}>{s}</option>)}
               </select>
               <label>
                 <input type="checkbox" checked={showOnlyWithLimits} onChange={e => setShowOnlyWithLimits(e.target.checked)} />
@@ -426,14 +459,17 @@
                     <SortHeader label="Provider" sortKey="provider" />
                     <SortHeader label="Category" sortKey="category" />
                     <SortHeader label="Best For" sortKey="bestFor" />
+                    <th>Tokens / req</th>
+                    <SortHeader label={`Limit (${periodInfo?.label})`} sortKey="limit" />
                     <SortHeader label="Free Limit" sortKey="freeLimit" />
-                    <SortHeader label={`Go Limit (${multiplier}×)`} sortKey="goLimit" />
+                    <th>Config ID</th>
+                    <th>Endpoint</th>
                     <th>Note</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filtered.map(m => {
-                    const goVal = m.goLimit != null ? m.goLimit * multiplier : null;
+                    const limitVal = m.limits[period] != null ? (m.limits[period] || 0) * multiplier : null;
                     return (
                       <tr key={m.id}>
                         <td>
@@ -443,19 +479,35 @@
                         <td><span className="badge badge-go">{m.category}</span></td>
                         <td>
                           {m.bestFor.split(',').map((tag, i) => (
-                            <span key={i} className="pill" style={{ marginRight: 6, marginBottom: 4, display: 'inline-block' }}>
+                            <span key={i} className="pill" style={{ marginRight: 4, marginBottom: 3, display: 'inline-block' }}>
                               {capitalize(tag)}
                             </span>
                           ))}
                         </td>
+                        <td>
+                          {m.tokens ? (
+                            <div className="token-row">
+                              <span className="token-pill"><strong>{formatNum(m.tokens.input)}</strong> in</span>
+                              <span className="token-pill"><strong>{formatNum(m.tokens.cached)}</strong> cache</span>
+                              <span className="token-pill"><strong>{formatNum(m.tokens.output)}</strong> out</span>
+                            </div>
+                          ) : '—'}
+                        </td>
+                        <td className="limit-cell">
+                          {limitVal != null ? <span style={{ color: 'var(--go)', fontWeight: 600 }}>{formatNum(limitVal)}</span> : '—'}
+                        </td>
                         <td className="limit-cell">
                           {m.freeLimit ? <span style={{ color: 'var(--free)', fontWeight: 600 }}>{formatNum(m.freeLimit)}</span> : '—'}
                         </td>
-                        <td className="limit-cell">
-                          {goVal != null ? <span style={{ color: 'var(--go)', fontWeight: 600 }}>{formatNum(goVal)}</span> : '—'}
+                        <td>
+                          {m.modelId ? <span className="endpoint">{m.modelId}</span> : '—'}
                         </td>
-                        <td style={{ fontSize: '0.85rem', color: 'var(--text-2)', maxWidth: 280 }}>
-                          {m.note && <span className="badge badge-promo" style={{ marginRight: 8 }}>Promo</span>}
+                        <td>
+                          {m.endpoint ? <span className="endpoint">{m.endpoint}</span> : '—'}
+                          {m.sdk && <div style={{ fontSize: '0.7rem', color: 'var(--text-2)', marginTop: 2 }}>{m.sdk}</div>}
+                        </td>
+                        <td style={{ fontSize: '0.8rem', color: 'var(--text-2)', maxWidth: 200 }}>
+                          {m.note && <span className="badge badge-promo" style={{ marginRight: 6, marginBottom: 4, display: 'inline-block' }}>Promo</span>}
                           {m.note || ''}
                         </td>
                       </tr>
@@ -470,11 +522,14 @@
           <div className="card">
             <h2>How to Read This Data</h2>
             <ul style={{ color: 'var(--text-2)', paddingLeft: 20 }}>
-              <li><strong>Requests per 5 hours:</strong> The number of API requests you can make within a 5-hour rolling window.</li>
+              <li><strong>Dollar-based limits:</strong> Go limits are defined in dollar value ($12 per 5 hours, $30 per week, $60 per month). The request counts shown are estimates based on observed average usage patterns.</li>
+              <li><strong>Token estimates:</strong> Input, cached, and output tokens per request are averages from real usage data. Cheaper models (fewer tokens, lower cost) allow more requests within the dollar limit.</li>
               <li><strong>Free tier:</strong> Gives you 200 requests per 5h, usable with Big Pickle and other free models.</li>
-              <li><strong>Go ($10/mo):</strong> Unlocks premium models with individually defined limits. Some models have temporary promotional multipliers (e.g., Kimi K2.6 currently gets 3× its normal limit).</li>
-              <li><strong>Multipliers (1×–100×):</strong> Purchasable top-ups that scale your limits. The chart lets you preview what each tier looks like.</li>
-              <li><strong>Models without shown limits:</strong> Several models (GLM-5, Kimi K2.5, MiMo-V2 variants, MiniMax M2.5) are included in Go but their exact per-model limits are not displayed on the public pricing page.</li>
+              <li><strong>Multipliers (1×–100×):</strong> Purchasable top-ups that scale your dollar limits. The charts let you preview what each tier looks like.</li>
+              <li><strong>Config ID:</strong> Use <code style={{ background: 'var(--surface-2)', padding: '2px 6px', borderRadius: 4 }}>opencode-go/&#123;model-id&#125;</code> in your OpenCode config.</li>
+              <li><strong>Endpoints:</strong> Most models use OpenAI-compatible <code style={{ background: 'var(--surface-2)', padding: '2px 6px', borderRadius: 4 }}>/chat/completions</code>. MiniMax uses Anthropic-compatible <code style={{ background: 'var(--surface-2)', padding: '2px 6px', borderRadius: 4 }}>/messages</code>.</li>
+              <li><strong>Zen balance fallback:</strong> If you reach your Go limit, you can enable "Use balance" in the console to fall back to Zen credits instead of blocking requests.</li>
+              <li><strong>Privacy:</strong> Models are hosted in the US, EU, and Singapore. Providers follow a zero-retention policy and do not use your data for training.</li>
             </ul>
           </div>
         </div>
