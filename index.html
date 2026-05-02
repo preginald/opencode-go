@@ -367,27 +367,6 @@
             </div>
           </div>
 
-          <div className="toolbar">
-            <input
-              type="text"
-              placeholder="Search models or providers..."
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
-            <select value={provider} onChange={e => setProvider(e.target.value)}>
-              <option value="All">All providers</option>
-              {PROVIDERS.map(p => <option key={p} value={p}>{p}</option>)}
-            </select>
-            <select value={category} onChange={e => setCategory(e.target.value)}>
-              <option value="All">All categories</option>
-              {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
-            </select>
-            <label>
-              <input type="checkbox" checked={showOnlyWithLimits} onChange={e => setShowOnlyWithLimits(e.target.checked)} />
-              Only show models with known limits
-            </label>
-          </div>
-
           <div className="card">
             <h2>Request Limit Multiplier</h2>
             <div className="multiplier-control">
@@ -415,6 +394,13 @@
           <div className="card">
             <h2>Model Details</h2>
             <div className="table-filters">
+              <input
+                type="text"
+                placeholder="Search models or providers..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                style={{ background: 'var(--surface-2)', border: '1px solid var(--border)', color: 'var(--text)', padding: '8px 12px', borderRadius: 8, fontSize: '0.85rem', outline: 'none', minWidth: 180 }}
+              />
               <select value={provider} onChange={e => setProvider(e.target.value)}>
                 <option value="All">All providers</option>
                 {PROVIDERS.map(p => <option key={p} value={p}>{p}</option>)}
