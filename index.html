@@ -286,7 +286,6 @@
         data.sort((a, b) => {
           let av, bv;
           if (sort.key === 'limit') { av = a.limits[period] ?? -1; bv = b.limits[period] ?? -1; }
-          else if (sort.key === 'freeLimit') { av = a.freeLimit ?? -1; bv = b.freeLimit ?? -1; }
           else { av = a[sort.key] ?? ''; bv = b[sort.key] ?? ''; }
           if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
           if (av < bv) return sort.dir === 'asc' ? -1 : 1;
@@ -461,7 +460,6 @@
                     <SortHeader label="Best For" sortKey="bestFor" />
                     <th>Tokens / req</th>
                     <SortHeader label={`Limit (${periodInfo?.label})`} sortKey="limit" />
-                    <SortHeader label="Free Limit" sortKey="freeLimit" />
                     <th>Config ID</th>
                     <th>Endpoint</th>
                     <th>Note</th>
@@ -473,7 +471,14 @@
                     return (
                       <tr key={m.id}>
                         <td>
-                          <div className="model-name">{m.name}</div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                            <span className="model-name">{m.name}</span>
+                            {m.freeLimit && (
+                              <span className="badge badge-free" title={`${formatNum(m.freeLimit)} requests per 5 hours`}>
+                                {formatNum(m.freeLimit)} free
+                              </span>
+                            )}
+                          </div>
                         </td>
                         <td className="provider">{m.provider}</td>
                         <td><span className="badge badge-go">{m.category}</span></td>
@@ -495,9 +500,6 @@
                         </td>
                         <td className="limit-cell">
                           {limitVal != null ? <span style={{ color: 'var(--go)', fontWeight: 600 }}>{formatNum(limitVal)}</span> : '—'}
-                        </td>
-                        <td className="limit-cell">
-                          {m.freeLimit ? <span style={{ color: 'var(--free)', fontWeight: 600 }}>{formatNum(m.freeLimit)}</span> : '—'}
                         </td>
                         <td>
                           {m.modelId ? <span className="endpoint">{m.modelId}</span> : '—'}
