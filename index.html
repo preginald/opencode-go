@@ -372,7 +372,13 @@
                         </td>
                         <td className="provider">{m.provider}</td>
                         <td><span className="badge badge-go">{m.category}</span></td>
-                        <td><span className="pill">{m.bestFor}</span></td>
+                        <td>
+                          {m.bestFor.split(',').map((tag, i) => (
+                            <span key={i} className="pill" style={{ marginRight: 6, marginBottom: 4, display: 'inline-block' }}>
+                              {tag.trim()}
+                            </span>
+                          ))}
+                        </td>
                         <td className="limit-cell">
                           {m.freeLimit ? <span style={{ color: 'var(--free)', fontWeight: 600 }}>{formatNum(m.freeLimit)}</span> : '—'}
                         </td>
